@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  #resources :favorites
+  #resources :posts
+  resources :posts, only: [:new, :create, :index, :show, :destroy] do
+    resource :favorite, only: [:create, :destroy]
+  end
   #get "mypages/show"
   #get "mypages/edit"
   devise_for :users

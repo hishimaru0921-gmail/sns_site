@@ -24,25 +24,28 @@
   </head>
 
   <body>
-  <header>
-
+     <header class="header display-f">
       <% if user_signed_in? %>
-        <li>
-          <%= link_to "マイページ", mypage_path(current_user) %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
-        </li>
-
+        <div class="width-200 text-align-c padding-l-15p">
+          <%= link_to "新規投稿", new_post_path, class: "color-white" %>
+        </div>
+        <div class="width-200 text-align-c">
+          <%= link_to "投稿一覧", posts_path, class: "color-white" %>
+        </div>
+        <div class="width-200 text-align-c">
+          <%= link_to "マイページ", mypage_path(current_user.id), class: "color-white" %>
+        </div>
+        <div class="width-200 text-align-c">
+          <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "color-white" %>
+        </div>
       <% else %>
-        <li>
-          <%= link_to "サインアップ", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
+        <div class="width-200 text-align-c padding-l-15p">
+          <%= link_to "サインアップ", new_user_registration_path, class: "color-white" %>
+        </div>
+        <div class="width-200 text-align-c">
+          <%= link_to "ログイン", new_user_session_path, class: "color-white" %>
+        </div>
       <% end %>
-      
     </header>
   
     <%= yield %>
