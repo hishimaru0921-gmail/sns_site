@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get "mypages/show"
-  get "mypages/edit"
+  #get "mypages/show"
+  #get "mypages/edit"
   devise_for :users
   resources :mypages, only: [:show,:edit,:update]
   #get "homes/top"

@@ -1,2 +1,24 @@
-<h1>Mypages#show</h1>
-<p>Find me in app/views/mypages/show.html.erb</p>
+<div class="padding-l-15p">
+
+  <p style="color: green"><%= notice %></p>
+
+  <h2>
+    <%= @user.name %>
+  </h2>
+
+  <p>
+    <strong>メールアドレス:</strong>
+    <%= @user.email %>
+  </p>
+
+  <p>
+    <strong>自己紹介:</strong>
+    <%= @user.content %>
+  </p>
+
+  <% if @user == current_user %>
+    <div class="width-120 border-green border-radius-3 text-align-c background-color-green">
+      <%= link_to "マイページ編集", edit_mypage_path, class: "color-white" %>
+    </div>
+  <% end %>
+

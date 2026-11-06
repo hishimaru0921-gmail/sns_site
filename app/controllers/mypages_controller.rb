@@ -8,12 +8,19 @@ class MypagesController < ApplicationController
   end
 
   def edit
+     @user = current_user
   end
 
-   private
+  def update
+    user = User.find(params[:id])
+    user.update(user_params)
+    redirect_to mypage_path(user.id)
+  end
 
-    # 許可するユーザ情報のパラメータ
-    def user_params
-      params.require(:user).permit(:name, :email, :content)
-    end
+  private
+
+  # 許可するユーザ情報のパラメータ
+  def user_params
+    params.require(:user).permit(:name, :email, :content)
+  end
 end
